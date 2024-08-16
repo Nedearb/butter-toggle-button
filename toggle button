@@ -1,0 +1,42 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local TextButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+TextButton.Parent = ScreenGui
+TextButton.AnchorPoint = Vector2.new(0, 0.5)
+TextButton.BackgroundColor3 = Color3.fromRGB(55, 62, 75)
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0, 0, 0.5, 0)
+TextButton.Size = UDim2.new(0.0735735744, 0, 0.0561497323, 0)
+TextButton.Font = Enum.Font.Unknown
+TextButton.Text = "Toggle"
+TextButton.TextColor3 = Color3.fromRGB(230, 230, 230)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+UICorner.Parent = TextButton
+
+-- Scripts:
+
+local function AKWIS_fake_script() -- TextButton.Script 
+    local script = Instance.new('Script', TextButton)
+
+    local button = script.Parent
+    
+    button.TouchTap:Connect(function()
+        ToggleUILib()
+    end)
+end
+coroutine.wrap(AKWIS_fake_script)()
