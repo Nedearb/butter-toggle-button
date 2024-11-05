@@ -1,0 +1,47 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local TextButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+TextButton.Parent = ScreenGui
+TextButton.AnchorPoint = Vector2.new(0, 0.5)
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0, 0, 0.5, 0)
+TextButton.Size = UDim2.new(0.0990990996, 0, 0.0508021377, 0)
+TextButton.Font = Enum.Font.Unknown
+TextButton.Text = "Toggle"
+TextButton.TextColor3 = Color3.fromRGB(255, 170, 0)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+UICorner.CornerRadius = UDim.new(0, 100)
+UICorner.Parent = TextButton
+
+-- Scripts:
+
+local function RVNSJXZ_fake_script() -- TextButton.Script 
+    local script = Instance.new('Script', TextButton)
+
+    local button = script.Parent
+    
+    button.MouseButton1Click:Connect(function()
+        local VirtualInputManager = game:GetService("VirtualInputManager")
+    
+        VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.RightShift, false, game)  -- Press right shift
+        wait(0.1)  -- Adjust delay as needed
+        VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.RightShift, false, game)  -- Release right shift
+    end)
+end
+coroutine.wrap(RVNSJXZ_fake_script)()
